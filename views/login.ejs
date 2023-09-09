@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+    
+    <style>
+        /* Additional Custom CSS */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 400px;
+            margin-top: 100px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .nav{
+            max-width: 400px;
+            /* margin-top: 100px; */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #343a40;
+            text-align: center;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="nav">
+        <a class="navbar-brand" href="#">Cricket Blog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Login Here</h1>
+    <form action="/login" method="POST" id="loginForm">
+        <div class="mb-3">
+            <label for="email"><b>User Email</b></label> 
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-mzpk/Pkqy9S4f4lSSfC0noItp9twHdp04M2Lq2o5PcFqFq8fIVbFyqF9KbOHbA3tx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" ></script>
+
+<script>
+    $(document).ready(function() {
+      $("#loginForm").validate({
+        rules: {
+          email: {
+            required: true,
+            email: true // Validate as an email address
+          },
+          password: {
+            minlength: 2,
+            required: true
+          }
+        },
+        messages: {
+          email: {
+            required: "Please enter valid Email address",
+            email: "Please enter a valid email address"
+          },
+          password: {
+            required: "Please enter your password"
+          }
+        },
+        submitHandler: function(form) {
+          form.submit(); // Submit the form if it's valid
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>
